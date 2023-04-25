@@ -46,6 +46,11 @@ namespace AlunosApi {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseCors(option => {
+                option.WithOrigins("http://localhost:3000", "http://localhost:5173");
+                option.AllowAnyHeader();
+                option.AllowAnyMethod();
+            });
 
             app.UseHttpsRedirection();
             app.UseRouting();
